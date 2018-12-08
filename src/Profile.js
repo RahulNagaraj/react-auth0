@@ -2,6 +2,6 @@ import React, { Component } from "react";
 
 export default class Profile extends Component {
   render() {
-    return <>Welcome to Profile!</>;
+    return <h1>Profile</h1>;
   }
 }
