@@ -3,17 +3,15 @@ const jwt = require("express-jwt");
 const jwks = require("jwks-rsa");
 require("dotenv").config();
 
-const jwtCheck = jwt({
+var jwtCheck = jwt({
   secret: jwks.expressJwtSecret({
     cache: true,
     rateLimit: true,
     jwksRequestsPerMinute: 5,
-    jwksUri: `https://${
-      process.env.REACT_APP_AUTH0_DOMAIN
-    }/.well-known/jwks.json`
+    jwksUri: "https://reactjsauth0-dev.auth0.com/.well-known/jwks.json"
   }),
-  audience: `${process.env.REACT_APP_AUTH0_AUDIENCE}`,
-  issuer: `${process.env.REACT_APP_AUTH0_DOMAIN}`,
+  audience: "http://localhost:3001",
+  issuer: "https://reactjsauth0-dev.auth0.com/",
   algorithms: ["RS256"]
 });
 
